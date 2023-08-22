@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Subject
+en.subject.pdf
