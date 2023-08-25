@@ -48,3 +48,8 @@ void PresidentialPardonForm::formExecute(Bureaucrat const &) const
 				<< "by the magnanimous decree of our Galactic President"
 				<< " Zaphod Beeblebrox. Awesome!" << std::endl; 
 }
+
+AForm * PresidentialPardonForm::Create(std::string const & target)
+{
+	return new PresidentialPardonForm(target);
+}

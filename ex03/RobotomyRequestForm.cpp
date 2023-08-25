@@ -51,3 +51,8 @@ void RobotomyRequestForm::formExecute(Bureaucrat const &) const
 	 	std::cout	<< "Robotomy on " << this->_target << " has failed." 
 					<< std::endl;
 }
+
+AForm * RobotomyRequestForm::Create(std::string const & target)
+{
+	return new RobotomyRequestForm(target);
+}

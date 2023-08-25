@@ -84,3 +84,7 @@ void ShrubberyCreationForm::formExecute(Bureaucrat const &) const
 	shrubbery << "                  `-'  `-'`-'-'" << std::endl;
 	shrubbery.close();
 }
+AForm * ShrubberyCreationForm::Create(std::string const & target)
+{
+	return new ShrubberyCreationForm(target);
+}

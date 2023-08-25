@@ -23,6 +23,8 @@
 
 class Intern
 {
+	typedef AForm* (*CreateFormCallbacks[])(std::string const &);
+
 	public:
 		/* Constructors */
 		Intern();
@@ -41,10 +43,10 @@ class Intern
 		};
 
 		/* Methods */
-		AForm * makeForm(std::string const & form, std::string const & target);
-		int formNameLookup(std::string const & form);
+		AForm * makeForm(std::string const & form_name, std::string const & target);
 
 	private:
+		int formNameLookup(std::string const & form);
 };
 
 #endif
