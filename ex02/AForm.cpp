@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 05:53:26 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 05:53:26 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 06:00:33 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 /* Constructors */
-AForm::AForm() : _name(""), _is_signed(false), _sign_grade(1), _execute_grade(1)
-{}
-
 AForm::AForm(std::string name, int sign_grade, int execute_grade)
 		: _name(name), _is_signed(false), 
 		_sign_grade(sign_grade), _execute_grade(execute_grade)
@@ -95,7 +92,6 @@ const char* AForm::FormNotSignedException::what() const throw()
 {
 	return "form not signed";
 }
-
 
 std::ostream & operator<<(std::ostream & ostream, AForm const & form)
 {

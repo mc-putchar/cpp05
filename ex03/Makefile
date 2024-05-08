@@ -3,37 +3,28 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
+#    By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/22 03:15:52 by mcutura           #+#    #+#              #
-#    Updated: 2023/08/22 03:15:52 by mcutura          ###   ########.fr        #
+#    Updated: 2024/05/08 06:19:13 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# --- Targets ---
 NAME := a.out
-# --- Sources ---
-SRCS := main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
-SRCS += RobotomyRequestForm.cpp PresidentialPardonForm.cpp
-SRCS += Intern.cpp
-# --- Objects ---
+SRCS := main.cpp Bureaucrat.cpp AForm.cpp Intern.cpp \
+	PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS := $(SRCS:%.cpp=%.o)
-# --- Headers ---
-HDRS := Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
-HDRS += RobotomyRequestForm.hpp PresidentialPardonForm.hpp
-HDRS += Intern.hpp
-# --- Compilers ---
-CC := gcc
-CXX := g++
-# --- Flags ---
-CFLAGS := -Wall -Wextra -Werror -pedantic-errors
-debug: CFLAGS += -ggdb3
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -pedantic-errors
-debug: CXXFLAGS += -ggdb3
-# --- Utils --
+HDRS := Bureaucrat.hpp AForm.hpp Intern.hpp \
+	PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -Wpedantic
+debug: CXXFLAGS += -ggdb3 -Og
+
 RM := rm -rf
 
-# --- Rules ---
+.PHONY: all clean debug fclean re
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HDRS)
@@ -51,5 +42,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean debug fclean re

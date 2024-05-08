@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 04:42:57 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 04:42:57 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 05:37:14 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 /* Constructors */
-Form::Form() : _name(""), _is_signed(false), _sign_grade(1), _execute_grade(1)
-{}
-
 Form::Form(std::string name, int sign_grade, int execute_grade)
 		: _name(name), _is_signed(false), 
 		_sign_grade(sign_grade), _execute_grade(execute_grade)
@@ -82,11 +79,10 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "grade too low";
 }
 
-
 std::ostream & operator<<(std::ostream & ostream, Form const & form)
 {
-	ostream	<< (form.getIsSigned() ? "Signed " : "Unsigned ") 
-			<< "form: " << form.getName() 
+	ostream	<< (form.getIsSigned() ? "Signed " : "Unsigned ")
+			<< "form: " << form.getName()
 			<< " | Grade required - to sign: " << form.getSignGrade()
 			<< " - to execute: " << form.getExecuteGrade()
 			<< std::endl;

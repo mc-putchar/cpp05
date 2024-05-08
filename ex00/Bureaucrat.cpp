@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 03:35:35 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 03:35:35 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 05:06:29 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /* Constructors */
-Bureaucrat::Bureaucrat()	{}
-
 Bureaucrat::Bureaucrat(std::string name, int grade)
 		: _name(name), _grade(grade)
 {
@@ -55,14 +53,14 @@ void Bureaucrat::incrementGrade(void)
 {
 	if (this->_grade == 1)
 		throw GradeTooHighException();
-	this->_grade--;
+	--this->_grade;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
 	if (this->_grade == 150)
 		throw GradeTooLowException();
-	this->_grade++;
+	++this->_grade;
 }
 
 /* Exceptions */
@@ -77,7 +75,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream & ostream, Bureaucrat const & bur)
 {
-	ostream << bur.getName() << ", bureaucrat grade " << bur.getGrade() << "." 
-		<< std::endl;
+	ostream << bur.getName() << ", bureaucrat grade " \
+			<< bur.getGrade() << "." << std::endl;
 	return ostream;
 }

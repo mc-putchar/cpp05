@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 03:17:53 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 03:17:53 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 05:51:39 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include <string>
 # include <exception>
+# include <string>
 
 class Form;
 
@@ -23,7 +23,6 @@ class Bureaucrat
 {
 	public:
 		/* Constructors */
-		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const & copy);
 

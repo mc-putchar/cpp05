@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 05:54:15 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 05:54:15 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 05:59:19 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@
 
 # include "Bureaucrat.hpp"
 
-class Bureaucrat;
-
 class AForm
 {
 	public:
 		/* Constructors */
-		AForm();
 		AForm(std::string name, int sign_grade, int execute_grade);
 		AForm(AForm const & copy);
 
@@ -69,6 +66,5 @@ class AForm
 };
 
 std::ostream & operator<<(std::ostream & ostream, AForm const & form);
-
 
 #endif

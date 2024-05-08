@@ -3,38 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
+#    By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/22 03:15:52 by mcutura           #+#    #+#              #
-#    Updated: 2023/08/22 03:15:52 by mcutura          ###   ########.fr        #
+#    Updated: 2024/05/08 05:06:48 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# --- Targets ---
 NAME := a.out
-# --- Sources ---
 SRCS := main.cpp Bureaucrat.cpp Form.cpp
-# --- Objects ---
 OBJS := $(SRCS:%.cpp=%.o)
-# --- Headers ---
 HDRS := Bureaucrat.hpp Form.hpp
-# --- Compilers ---
-CC := gcc
-CXX := g++
-# --- Flags ---
-CFLAGS := -Wall -Wextra -Werror -pedantic-errors
-debug: CFLAGS += -ggdb3
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -pedantic-errors
-debug: CXXFLAGS += -ggdb3
-# --- Utils --
+
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -Wpedantic
+debug: CXXFLAGS += -ggdb3 -Og
+
 RM := rm -rf
 
-# --- Rules ---
+.PHONY: all clean debug fclean re
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HDRS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
-	
+
 $(OBJS) : %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
@@ -47,5 +40,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean debug fclean re

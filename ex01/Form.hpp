@@ -3,30 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mcutura <mcutura@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 04:33:51 by mcutura           #+#    #+#             */
-/*   Updated: 2023/08/22 04:33:51 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/08 05:41:17 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-
 # include <iostream>
-# include <string>
 # include <exception>
+# include <string>
 
 # include "Bureaucrat.hpp"
-
-// class Bureaucrat;
 
 class Form
 {
 	public:
 		/* Constructors */
-		Form();
 		Form(std::string name, int sign_grade, int execute_grade);
 		Form(Form const & copy);
 
@@ -63,6 +59,5 @@ class Form
 };
 
 std::ostream & operator<<(std::ostream & ostream, Form const & form);
-
 
 #endif
